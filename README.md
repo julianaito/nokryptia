@@ -21,10 +21,12 @@ and `/usr/share/man/man1` respectively:
     $ make
     $ sudo make install
 
-Note to *BSD users: you may want to set the `PREFIX` environment variable to
+Note to \*BSD users: you may want to set the `PREFIX` environment variable to
 point to `/usr/local` instead.
 
-## Quickstart:
+## Quickstart
+
+By default nokryptia takes a MP3 file as an argument and outputs a LSE file in the current directory. Here is a simple example:
 
     $ cd /where/my/nokia5510/is/mounted
     $ nokryptia ~/music/my.mp3
@@ -35,3 +37,13 @@ More options are available, see the manpage.
 
 As far as i'm concerned, my goal is simply to let nokryptia build and
 run on modern toolchains, with some minor changes, but PRs are welcome!
+
+## Authors
+
+Roel Derickx <roel.derickx@campux.be>
+
+Contributions :
+Krzysztof Gorgolewski	<kgorgolewski@o2.pl>		(made the ID3 tag support)
+Luigi Paiella		<paiella@bigfoot.com>		(made hotplug support, not available anymore, it was pre-udev)
+Marian Hromiak		<hromiak9@kepler.fmph.uniba.sk>	(bugfixes and getopt function calls)
+Charlene Wendling	<julianaito@posteo.jp>		(build fixes)
