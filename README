@@ -1,111 +1,37 @@
-	nokryptia v1.3
+# Nokryptia
 
-This program is made for the Nokia 5510 to put music on your
-mobile.  To use the phone, 2 steps are necessary to do :
+Nokryptia is a tool allowing you to transfer MP3s to the [Nokia 5510](https://en.wikipedia.org/wiki/Nokia_5510) in the LSE format that device uses, and vice-versa.
 
+Unlike Nokia's audio manager, transferred files are not encrypted, they're actually readable by classic media players, like mpv for example.
 
-1. using the usb-storage :
+Nokryptia can't decrypt LSEs created by the Nokia Audio Manager and recorded radio streams format (RLE).
 
-include the following line into the kernel source in the file
-/usr/src/linux/drivers/usb/storage/unusual_devs.h - assuming
-that you installed the kernel source in /usr/src/linux
+This repository is an **UNOFFICIAL** fork of the original nokryptia by Roel Derickx. Due to the shutdown of tuxmobil.org, the software was not trivial to find and was broken with modern compilers since there has been no development since 2003.
 
-UNUSUAL_DEV(  0x0421, 0x0404, 0x0000, 0xffff,
-		"Nokia",
-		"5510",
-		US_SC_SCSI, US_PR_BULK, NULL, US_FL_START_STOP),
+## Dependencies
 
---------------------------------------------------------------------
-For people who want to understand this: the first two parameters
-are the vendor and the product code.  This is easy to find, just
-plug in your mobile and the kernel will report it.  The next two
-arguments were just a guess for me, I don't know what they mean.
-It must be a minimum and a maximum of something, other examples
-in the same file also used 0x0000 and 0xffff.  The next two
-parameters are vendor and product string.  Feel free to change
-this in wathever you like (I never tested this, but I think it
-works with any string).  The next parameter tells the driver to
-use SCSI commands for the device.  The engineers who invented
-usb-storage took definitely scsi as an example.  The next parameter
-is the protocol, I can't tell very much about this.  The next one
-is NULL, this should be a pointer to an initialization function.
-Luckily, there is no need for this on the Nokia, but this was
-easy to guess because even windows didn't need drivers to use the
-storage function.  The last one is probably the most important
-parameter, these are the flags.  In this case, we need only one
-for telling the driver that we need to ignore the start and stop
-commands.  For this reason, the patch is not necessary anymore in
-kernels >= 2.5.48, because these kernels will never do start and
-stop commands, except if the device is asking for it.
---------------------------------------------------------------------
+- [id3lib](http://id3lib.sourceforge.net)
+- a modern compiler (clang/gcc>=8) -- older versions may work
 
-After recompiling the kernel you should be able to mount the
-device as /dev/sda1.  I tested this with kernel version 2.4.18,
-which seems to work; it is also reported to work with kernel
-version 2.4.19  Probably it works also on earlier kernel
-versions, as long as they support usb-storage.  I only tested
-my personal 5510, so it may not work with your phone.
-WARNING : before unmounting your mobile, do a sync.  I noticed
-that you will get some ugly errors from the kernel if you forget
-this.  The sync can take up some minutes, depending on how much
-data will be stored.  On some distro's the sync seems not to be
-necessary.
-Some research learned me that this patch is not necessary anymore
-for kernel versions > 2.5.48.  Because this is almost the latest
-development version, I suppose that you will be interested in
-the patch anyway.
-I got a lot of response from people who were not familiar with
-kernel recompiling.  Because kernel-recompiling is certainly not
-easy, I will give some useful hints to avoid answering always
-the same questions via e-mail.  If you still have problems, feel
-free to contact me, it could be that I forgot to add a very
-important hint in the list.
+## Installation
 
-a) Be sure to compile at least the usb-storage, the scsi_mod,
-   the sd_mod, the vfat and the fat modules.  Of course, you will
-   need more modules, depending of the rest of your hardware.
-   Keep in mind that these should be modules, I tried to compile
-   it built-in into the kernel and it didn't work.
-b) On some distributions, it seems to be necessary to do
-   "modprobe usb-storage" after plugging in your mobile.  This
-   was the most common solution to the problems sent to me in the
-   past, so be sure to check especially this.
-c) The device that needs to be mounted is /dev/sda1.  If you
-   have scsi-harddisk it will probably be something else like
-   /dev/sdb1 or /dev/sdc1.  If it happens to be that you have a
-   scsi-cdrom, the cdrom will be /dev/scd0 and the mobile is still
-   /dev/sda1.  If this really doesn't work, the kernel messages
-   produced after plugging in your phone can give you some hints.
-d) If it happens that /dev/sda1 does not exist on your system, you
-   will need to do a mknod to make the node.  As I don't know how
-   to do this, consult the man-page of mknod.  The output you
-   should get when doing "ls -l /dev/sda1" is:
-   brw-rw----    1 root     disk       8,   1 Mar 24  2001 /dev/sda1
+This will build and install nokryptia and its manpage to `/usr/bin`
+and `/usr/share/man/man1` respectively:
 
+    $ make
+    $ sudo make install
 
-2. putting music on your mobile :
+Note to *BSD users: you may want to set the `PREFIX` environment variable to
+point to `/usr/local` instead.
 
-Normally, the music on the mobile must be encrypted using the
-Nokia Audio Manager.  Because I don't know the encryption 
-algorithm, I made a workaround by setting the key to all zeroes
-and using the unencrypted music, which seems to work on my phone.
-The program makes use of id3lib.  Install this before you install
-nokryptia.  You can find it at http://id3lib.sourceforge.net.
-To compile, enter the following commands :
+## Quickstart:
 
-% tar xvzf nokryptia-1.3.tgz
-% cd nokryptia-1.3
-% ./configure
-% make
-(finally, as root)
-% make install
+    $ cd /where/my/nokia5510/is/mounted
+    $ nokryptia ~/music/my.mp3
 
-To put the music on your device, change the working directory to
-the place where the device is mounted (eg /mnt/nokia).  Now run
-the utility with an mp3 file as argument.
+More options are available, see the manpage.
 
-Enjoy your life without window$!
+## Todo
 
-Roel Derickx
-E-mail : roel.derickx@campux.be
-
+As far as i'm concerned, my goal is simply to let nokryptia build and
+run on modern toolchains, with some minor changes, but PRs are welcome!

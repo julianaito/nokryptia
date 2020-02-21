@@ -1,19 +1,18 @@
 PACKAGE = nokryptia
 VERSION = 1.3.1rc0
+VERSION_FLAGS = -DPACKAGE="\"$(PACKAGE)\"" -DVERSION="\"$(VERSION)\""
 
+# Target destinations
 DESTDIR ?=
-PREFIX  ?= /usr/local
+PREFIX  ?= /usr
 BINDIR  ?= $(PREFIX)/bin
 MANDIR  ?= $(PREFIX)/share/man
 
-PKGCONFIG  ?= pkg-config
-CXX        ?= c++
-CXXFLAGS   ?=
-LDFLAGS    ?=
-
-CXXDEPS     = -DPACKAGE="\"$(PACKAGE)\"" -DVERSION="\"$(VERSION)\""
-CXXDEPS    += -I$(PREFIX)/include
-LIBS        = -L$(PREFIX)/lib -lid3 -lz
+# User supplied variables
+CXX        = c++
+CPPFLAGS   = -I$(PREFIX)/include
+LDFLAGS    = -L$(PREFIX)/lib
+LIBS       = -lid3 -lz
 
 EXE         = nokryptia
 SRC         = nokryptia.cpp
@@ -21,7 +20,9 @@ SRC         = nokryptia.cpp
 all: nokryptia
 
 nokryptia:
-		$(CXX) -o $(EXE) $(SRC) $(CXXDEPS) $(CXXFLAGS) $(LIBS) $(LDFLAGS)
+	$(CXX) -o $(EXE) $(SRC) \
+		$(CPPFLAGS) $(CXXFLAGS) $(VERSION_FLAGS) \
+		$(LDFLAGS) $(LIBS)
 
 install: all
 	mkdir -p $(DESTDIR)$(BINDIR)
