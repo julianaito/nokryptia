@@ -3,6 +3,7 @@
  *             in the mp3 player included with nokia5510 mobiles.
  *
  * Copyright (C) 2002 Roel Derickx <roel.derickx@campux.be>
+ * Copyright (C) 2020 Charlene Wendling <julianaito@posteo.jp>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,9 +24,8 @@
 #include <iostream>
 #include <string.h>
 #include <getopt.h>
-#include "config.h"
-#include "id3/id3lib_streams.h"
-#include "id3/tag.h"
+#include <id3/id3lib_streams.h>
+#include <id3/tag.h>
 
 #define COPYBUFSIZE 10240
 
@@ -41,7 +41,7 @@ int    action;     /* 1 for upload, 2 for download */
 
 void writeHelpMessage(const char * progname) {
 	std::cout << PACKAGE << " version " << VERSION
-	     << " copyright by Roel Derickx" << std::endl
+	     << " copyright by Roel Derickx and others" << std::endl
 	     << "THIS SOFTWARE COMES WITH ABSOLUTELY NO WARRANTY! "
 	     << "USE AT YOUR OWN RISK!" << std::endl << std::endl
 	     << "Usage:" << std::endl

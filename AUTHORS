@@ -4,3 +4,4 @@ Contributions :
 Krzysztof Gorgolewski	<kgorgolewski@o2.pl>		(made the ID3 tag support)
 Luigi Paiella		<paiella@bigfoot.com>		(made hotplug support)
 Marian Hromiak		<hromiak9@kepler.fmph.uniba.sk>	(bugfixes and getopt function calls)
+Charlene Wendling	<julianaito@posteo.jp>		(current maintainer, build fixes)
