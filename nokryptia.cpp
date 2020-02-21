@@ -103,14 +103,14 @@ int parseInputFiles(int argc, char *argv[]){
   
 	switch (action) {
 	case 1:
-		if (looknchange(outfilename,".mp3",".lse") != 0) {
+		if (looknchange(outfilename, (char *) ".mp3", (char *) ".lse") != 0) {
             std::cout << "Input file must have mp3 "
 			     << "extension!" << std::endl;
 			return 1;
 		}
 		break;
 	case 2:
-		if (looknchange(outfilename,".lse",".mp3") != 0) {
+		if (looknchange(outfilename, (char *) ".lse", (char *) ".mp3") != 0) {
             std::cout << "Input file must have lse "
 			     << "extension!" << std::endl;
 			return 1;
