@@ -1,0 +1,21 @@
+To use the hotplug functionality, you need to follow the next steps:
+
+1 create /mnt/nokia5510
+2 copy the cp5510.sh script to /etc/hotplug/usb - this script can be
+  found in the hotplug directory in the source tree
+3 adjust this script conforming your needs (especially tmp dir and
+  log file) to fit your need
+4 at the end of /etc/hotplug/usb.usermap put:
+
+cp5510.sh    0x0003      0x0421   0x0404     0x0000       0x0000
+0x06         0x00            0x00            0x00            0x00
+0x00               0x00000000
+
+
+USE STEPS:
+
+1 make L I N K S to your mp3 files in the tmp dir
+2 connect your phone (you'll hear 3 beeps)
+3 when you ear 3 beeps you can disconnect (device unmounted)
+
+This file as well as the copy script is written by Luigi Paiella <paiella@bigfoot.com>

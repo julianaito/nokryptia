@@ -1,0 +1,50 @@
+22 december 2003
+- include option to specify output directory
+- public release of version 1.3
+
+05 december 2003
+- updated version of webpage is available
+
+03 december 2003
+- fixed lse to mp3 conversion again to make it really work
+
+02 december 2003
+- code clean-up: make use of getopt function calls (thanks to Marian Hromiak)
+
+19 july     2003
+- fixed bug that prevented conversion from lse back to mp3 (how can 
+  such a bug live that long without being noticed?)
+- verbose option is giving more info
+- some simplifications of the code
+
+11 may      2003
+- fixed bug that prevented -d and -u from being the second parameter
+- fixed string overflow at ID3tags with artist or songtitle > 30 chars
+		   
+24 february 2003
+- mobilix is changed into tuxmobil.org
+
+18 december 2003
+- first version of webpage is ready
+
+15 december 2002
+- namechange to avoid copyright troubles
+- add manual-page, add extra information to README based on problems
+  that were send to me.
+      
+11 december 2002
+- added ID3 tag support (thanks to Krzysztof Gorgolewski)
+
+09 december 2002
+- first public release
+  address is http://www.mobilix.org/
+
+08 december 2002
+- fixed some memory allocation bugs
+- outputfile is now written to the working directory
+- add verbose option
+
+07 december 2002
+- initial version
+- include parseOptions() to get options
+- switched artistname and songtitle

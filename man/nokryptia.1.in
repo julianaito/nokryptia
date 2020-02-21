@@ -1,0 +1,46 @@
+.TH @PACKAGE@ "1" "19 December 2003" "Version @VERSION@" "Linux Nokia 5510 Utility"
+
+.SH NAME
+@PACKAGE@ \- Linux Nokia 5510 Utility
+.SH SYNOPSIS
+.TP
+\fB@PACKAGE@ \fR[\fBoptions\fR]\fB file\fR
+.SH DESCRIPTION
+.PP
+@PACKAGE@ is a program designed to make mp3 files readable for the Nokia5510, and to convert them back to mp3 afterwards if needed.  Normally, this should be done by the Nokia Audio Manager delivered with your phone, which will encrypt the mp3's.  Because the encryption algorithm is not known by me at this moment, this application will not encrypt or decrypt the data, but use a workaround instead.  Because of this, this utility is extremely fast compared to the application from Nokia.
+Putting the files on the phone can be done by a kernel patch, consult the README in the source and the kernel-HOWTO from the linux documentation project on how to do this.
+.SH OPTIONS
+.TP
+\fB\-u\fR
+.TP
+\fB\-d\fR
+These options convert respectively mp3 into lse and lse into mp3.  The outputfile will be written to the working directory, so you have to change the working directory to the place where the output file should be written.  If none of these two options is given, then -u will be taken as default.  It doesn't make sense to combine these two parameters, if you do this, only the last one counts.
+.TP
+\fB\-a <artistname>\fR
+.TP
+\fB\-t <songtitle>\fR
+These options set respectively the artistname and the songtitle that the Nokia 5510 will display.  These options will be ignored if you convert files from lse to mp3.  If these options are not given, the application will try to read the ID3 tag from the source mp3.  If this is not possible, it will use the string "unknown", which is certainly not what you want.
+.TP
+\fB\-v\fR
+Be verbose.  This option gives some more information, however I don't think it is very useful.
+.TP
+\fB\-h\fR
+Print a short help screen.
+.TP
+\fBfile\fR
+This option is mandatory.  Give the input filename here.  Wildcards are not yet supported.
+.SH AUTHOR
+Written by Roel Derickx <roel.derickx@campux.be>
+.TP
+ID3 support by Krzysztof Gorgolewski <kgorgolewski@o2.pl>
+.TP
+Hotplug support by Luigi Paiella <paiella@bigfoot.com>
+.TP
+bugfixes and getopt function calls by Marian Hromiak <hromiak9@kepler.fmph.uniba.sk>
+.SH REPORTING BUGS
+Report bugs to <roel.derickx@campux.be>.
+.SH COPYRIGHT
+Copyright \(co 2002 Roel Derickx.
+.br
+This is free software; see the source for copying conditions. There is NO
+warranty.
