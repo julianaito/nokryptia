@@ -12,6 +12,7 @@ This repository is an **UNOFFICIAL** fork of the original nokryptia by Roel Deri
 
 - [id3lib](http://id3lib.sourceforge.net)
 - a modern compiler (clang/gcc>=8) -- older versions may work
+- GNU Make or BSD Make
 
 ## Installation
 
