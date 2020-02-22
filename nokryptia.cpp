@@ -211,16 +211,16 @@ void makeTag(char * artist, char * title) {
 	}
 
 	/* generate the data */
-	bcopy("ID3",buf,3);
+	memcpy(buf,"ID3",3);
 	*(buf+3) = 0x03;
 	*(buf+8) = 0x02;
-	bcopy("vTIT2",buf+9,5);
+	memcpy(buf+9,"vTIT2",5);
 	*(buf+17) = lengthTitle+1;
-	bcopy(title, buf+21, lengthTitle);
-	bcopy("TPE1", buf+21+lengthTitle, 4);
+	memcpy(buf+21,title,lengthTitle);
+	memcpy(buf+21+lengthTitle,"TPE1",4);
 	*(buf+28+lengthTitle) = lengthArtist+1;
-	bcopy(artist, buf+32+lengthTitle, lengthArtist);
-	bcopy("TLEN", buf+32+lengthTitle+lengthArtist, 4);
+	memcpy(buf+32+lengthTitle,artist, lengthArtist);
+	memcpy(buf+32+lengthTitle+lengthArtist,"TLEN",4);
 	*(buf+39+lengthTitle+lengthArtist) = 0x06;
 
 	/* write the header to the file */
@@ -245,7 +245,7 @@ void makeHeader() {
 	}
 
 	/* generate the data */
-	bcopy("LockStream Embedded\0d",buf,21);
+	memcpy(buf,"LockStream Embedded\0d",21);
 	*(buf+25) = 0x02;
 	*(buf+32) = 0x02;
 	*(buf+37) = 0x02;
