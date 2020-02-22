@@ -40,21 +40,21 @@ int    verbose;
 int    action;     /* 1 for upload, 2 for download */
 
 void writeHelpMessage(const char * progname) {
-	std::cout << PACKAGE << " version " << VERSION
-	     << " copyright by Roel Derickx and others" << std::endl
-	     << "THIS SOFTWARE COMES WITH ABSOLUTELY NO WARRANTY! "
-	     << "USE AT YOUR OWN RISK!" << std::endl << std::endl
-	     << "Usage:" << std::endl
-	     << "   " << progname << " [options] file" << std::endl
-	     << "Options:" << std::endl
-	     << "   -u               convert mp3 into lse for upload" << std::endl
-	     << "   -d               convert lse into mp3 for download" << std::endl
-	     << "   -a <artistname>  set artist to artistname" << std::endl
-	     << "   -t <songtitle>   set title to songtitle" << std::endl
-	     << "   -o <directory>   directory to where output files should be written" << std::endl
-	     << "   -v               be verbose" << std::endl
-	     << "   -h               print this help screen" << std::endl
-	     << "See the man page for more information" << std::endl;
+	std::cout << PACKAGE << " version " << VERSION <<
+	    " copyright by Roel Derickx and others\n"
+	    "THIS SOFTWARE COMES WITH ABSOLUTELY NO WARRANTY! "
+	    "USE AT YOUR OWN RISK!\n"
+	    "\nUsage:\n"
+	    "   " << progname << " [options] file\n"
+	    "\nOptions:\n"
+	    "   -u               convert mp3 into lse for upload\n"
+	    "   -d               convert lse into mp3 for download\n"
+	    "   -a <artistname>  set artist to artistname\n"
+	    "   -t <songtitle>   set title to songtitle\n"
+	    "   -o <directory>   directory to where output files should be written\n"
+	    "   -v               be verbose\n"
+	    "   -h               print this help screen\n"
+	    "\nSee the man page for more information\n";
 }
 
 /*
@@ -77,13 +77,13 @@ int looknchange(char * string1, char * string2, char * string3) {
 
 int parseInputFiles(int argc, char *argv[]){
 	char * temp;
-  
+
 	/* look for .mp3 in infilename and change into .lse */
 	/* or vice versa, depending on which action is chosen */
 	/* also remove the path from infilename */
 
 	if (optind >= argc) {
-        std::cout << "No input file given!" << std::endl;
+		std::cout << "No input file given!" << std::endl;
 		return 1;
 	}
 	strcpy(infilename, argv[optind++]);
@@ -104,14 +104,14 @@ int parseInputFiles(int argc, char *argv[]){
 	switch (action) {
 	case 1:
 		if (looknchange(outfilename, (char *) ".mp3", (char *) ".lse") != 0) {
-            std::cout << "Input file must have mp3 "
+			std::cout << "Input file must have mp3 "
 			     << "extension!" << std::endl;
 			return 1;
 		}
 		break;
 	case 2:
 		if (looknchange(outfilename, (char *) ".lse", (char *) ".mp3") != 0) {
-            std::cout << "Input file must have lse "
+			std::cout << "Input file must have lse "
 			     << "extension!" << std::endl;
 			return 1;
 		}
@@ -142,7 +142,7 @@ int parseOptions(int argc, char * argv[]) {
 		switch (c) {
 		case 'h':
 			writeHelpMessage(argv[0]);
-			exit(0);          
+			exit(0);
 			break;
 		case 'a':
 			strncpy(artistname,optarg,30);
@@ -186,7 +186,7 @@ int parseOptions(int argc, char * argv[]) {
 		myFrame->Field(ID3FN_TEXT).Get(artistname,30);
 		strcat(artistname,"\0");
 	}
-		
+
 	return parseInputFiles(argc,argv);
 }
 
@@ -334,7 +334,7 @@ int main(int argc, char * argv[]) {
 	
 	/* open the infile */
 	if ((infile = fopen(infilename,"rb")) == NULL) {
-		std::cout << infilename 
+		std::cout << infilename
 		     << ": No such file or directory" << std::endl;
 		
 		cleanUpMemory();
@@ -345,7 +345,7 @@ int main(int argc, char * argv[]) {
 	
 	/* open the outfile */
 	if ((outfile = fopen(outfilename,"wb")) == NULL) {
-		std::cout << "An error occured while opening " 
+		std::cout << "An error occured while opening "
 		     << outfilename << " for writing." << std::endl
 		     << "Do you have write permission "
 		     << "in this directory?" << std::endl;
