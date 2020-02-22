@@ -10,7 +10,7 @@ MANDIR  ?= $(PREFIX)/share/man
 
 # User supplied variables
 CXX        = c++
-CPPFLAGS   = -I$(PREFIX)/include
+CPPFLAGS   = -I$(PREFIX)/include -Wall
 LDFLAGS    = -L$(PREFIX)/lib
 LIBS       = -lid3 -lz
 
