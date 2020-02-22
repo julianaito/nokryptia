@@ -192,7 +192,6 @@ int parseOptions(int argc, char * argv[]) {
 
 void makeTag(char * artist, char * title) {
 	char * buf;
-	int i;
 	int lengthArtist = strlen(artist);
 	int lengthTitle  = strlen(title);
 
@@ -203,12 +202,7 @@ void makeTag(char * artist, char * title) {
 	}
 
 	/* allocate memory */
-	buf = new char[384];
-
-	/* clear the buffer */
-	for (i = 0; i < 384; i++) {
-		*(buf+i) = 0;
-	}
+	buf = new char[384]();
 
 	/* generate the data */
 	memcpy(buf,"ID3",3);
@@ -232,17 +226,11 @@ void makeTag(char * artist, char * title) {
 
 void makeHeader() {
 	char * buf;
-	int i;
 
 	if (verbose) std::cout << "Writing LockStream key to output" << std::endl;
 
 	/* allocate memory */
-	buf = new char[512];
-
-	/* clear the buffer */
-	for (i = 0; i < 512; i++) {
-		*(buf+i) = 0;
-	}
+	buf = new char[512]();
 
 	/* generate the data */
 	memcpy(buf,"LockStream Embedded\0d",21);
