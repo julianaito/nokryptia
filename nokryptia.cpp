@@ -122,8 +122,7 @@ int parseInputFiles(int argc, char *argv[]){
 }
 
 int parseOptions(int argc, char * argv[]) {
-	int i,c;
-	char * temp;
+	int c;
 	
 	/* first of all, check number of parameters */
 	if (argc < 2) {
