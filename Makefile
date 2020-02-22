@@ -21,7 +21,7 @@ all: nokryptia
 
 nokryptia:
 	$(CXX) -o $(EXE) $(SRC) \
-		$(CPPFLAGS) $(CXXFLAGS) $(VERSION_FLAGS) \
+		-std=c++03 $(CPPFLAGS) $(CXXFLAGS) $(VERSION_FLAGS) \
 		$(LDFLAGS) $(LIBS)
 
 install: all
