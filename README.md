@@ -43,8 +43,12 @@ run on modern toolchains, with some minor changes, but PRs are welcome!
 
 Roel Derickx <roel.derickx@campux.be>
 
-Contributions :
+## Contributions
+
 Krzysztof Gorgolewski	<kgorgolewski@o2.pl>		(made the ID3 tag support)
+
 Luigi Paiella		<paiella@bigfoot.com>		(made hotplug support, not available anymore, it was pre-udev)
+
 Marian Hromiak		<hromiak9@kepler.fmph.uniba.sk>	(bugfixes and getopt function calls)
+
 Charlene Wendling	<julianaito@posteo.jp>		(build fixes)
