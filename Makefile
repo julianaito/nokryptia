@@ -1,5 +1,5 @@
 PACKAGE = nokryptia
-VERSION = 1.3.1rc0
+VERSION = 1.3.1rc2
 VERSION_FLAGS = -DPACKAGE="\"$(PACKAGE)\"" -DVERSION="\"$(VERSION)\""
 
 # Target destinations
