@@ -2,8 +2,8 @@
  * nokryptia : this program is a workaround for the encryption used
  *             in the mp3 player included with nokia5510 mobiles.
  *
- * Copyright (C) 2002 Roel Derickx <roel.derickx@campux.be>
- * Copyright (C) 2020 Charlene Wendling <julianaito@posteo.jp>
+ * Copyright (C) 2002 Roel Derickx
+ * Copyright (C) 2020 Charlene Wendling
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
