@@ -17,9 +17,9 @@ LIBS       = -lid3 -lz
 EXE         = nokryptia
 SRC         = nokryptia.cpp
 
-all: nokryptia
+.PHONY: install clean
 
-nokryptia:
+$(EXE): $(SRC)
 	$(CXX) -o $(EXE) $(SRC) \
 		-std=c++03 $(CPPFLAGS) $(CXXFLAGS) $(VERSION_FLAGS) \
 		$(LDFLAGS) $(LIBS)
