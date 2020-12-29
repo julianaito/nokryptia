@@ -1,12 +1,19 @@
 # Nokryptia
 
-Nokryptia is a tool allowing you to transfer MP3s to the [Nokia 5510](https://en.wikipedia.org/wiki/Nokia_5510) in the LSE format that device uses, and vice-versa.
+Nokryptia is a tool allowing you to transfer MP3s to the [Nokia
+5510](https://en.wikipedia.org/wiki/Nokia_5510) in the LSE format that device
+uses, and vice-versa.
 
-Unlike Nokia's audio manager, transferred files are not encrypted, they're actually readable by classic media players, like mpv for example.
+Unlike Nokia's audio manager, transferred files are not encrypted, they're
+actually readable by classic media players, like mpv for example.
 
-Nokryptia can't decrypt LSEs created by the Nokia Audio Manager and recorded radio streams format (RLE).
+Nokryptia can't decrypt LSEs created by the Nokia Audio Manager and recorded
+radio streams format (RLE).
 
-This repository is an **UNOFFICIAL** fork of the original nokryptia by Roel Derickx. Due to the shutdown of tuxmobil.org, the software was not trivial to find and was broken with modern compilers since there has been no development since 2003.
+This repository is an **UNOFFICIAL** fork of the original nokryptia by Roel
+Derickx. Due to the shutdown of tuxmobil.org, the software was not trivial to
+find and was broken with modern compilers since there has been no development
+since 2003.
 
 ## Dependencies
 
@@ -24,11 +31,13 @@ and `/usr/share/man/man1` respectively:
     $ sudo make install
 
 Note to \*BSD users: you may want to set the `PREFIX` environment variable to
-point to `/usr/local` instead.
+point to `/usr/local` instead -- this will change the include and library
+search paths accordingly.
 
 ## Quickstart
 
-By default nokryptia takes a MP3 file as an argument and outputs a LSE file in the current directory. Here is a simple example:
+By default nokryptia takes a MP3 file as an argument and outputs a LSE file in
+the current directory. Here is a simple example:
 
     $ cd /where/my/nokia5510/is/mounted
     $ nokryptia ~/music/my.mp3
